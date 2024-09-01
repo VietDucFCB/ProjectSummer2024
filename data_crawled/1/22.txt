@@ -1,47 +1,27 @@
-Title: 2021 Jeep Wrangler Unlimited Sahara High Altitude
-Cash Price: $24,127
-Finance Price: $437/moEstimate
+Title: 2022 Ford Transit Cutaway T-350 RWD DRW 138" WB 9950 GVWR
+Cash Price: $33,995
+Finance Price: $642/moEstimate
 Finance Details: $3,000 due at signing · 60 mo · 8.89% APR
-Exterior: Red
-Interior: Black
-Mileage: 76,052 miles
+Exterior: White
+Interior: Gray
+Mileage: 9,494 miles
 Fuel Type: Gas
-MPG: 21 city / 24 highway
+MPG: N/A
 Transmission: Automatic Transmission
 Drivetrain: N/A
 Engine: N/A
 Location: N/A
-Listed Since: Listed 91 days ago
-VIN: 1C4HJXEG7MW515398
-Stock Number: A0078
+Listed Since: Listed 39 days ago
+VIN: 1FDBF6P86NKA75945
+Stock Number: 10442
 Features:
-Power Steering
-Side Air Bags
-Uconnect
-Hill Start Assist Control
-Power Windows
-Traction Control
-Power Door Locks
-ABS (4-Wheel)
-Backup Camera
-V6 VVT 3.6 Liter
-Dual Air Bags
-Fog Lights
-Alarm System
-Technology Group
-Daytime Running Lights
-Keyless Entry
-4WD
-Running Boards
-Automatic 8-Spd
-Cruise Control
-AM/FM Stereo
-Tilt & Telescoping Wheel
-Alloy Wheels
-Air Conditioning
-Electronic Stability Control
-Push Button Start
-Bluetooth Wireless
-Rollover Mitigation
-SiriusXM Satellite
+Airbag deactivation: passenger switch
+Front airbags: dual
+Side airbags: front
+Side curtain airbags: front
+Front brake diameter: 12.1
+Rear brake diameter: 12.1
+Axle ratio: 4.10
+OEM roof height: low
+Tire type: all season
 See less

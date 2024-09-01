@@ -193,7 +193,7 @@ def extract_and_save_car_data(page_number):
     finally:
         driver.quit()
 
-total_pages = 1
+total_pages = 2
 
 with ThreadPoolExecutor(max_workers=5) as executor:
     futures = [executor.submit(extract_and_save_car_data, page_number) for page_number in range(1, total_pages + 1)]

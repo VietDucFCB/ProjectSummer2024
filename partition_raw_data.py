@@ -21,7 +21,6 @@ for filename in os.listdir(input_dir):
             for line in f:
                 key, value = line.strip().split(": ", 1)
                 data[key] = value
-
             # Tính toán ngày đăng bài
             listed_days_ago = int(data['Listed Since'].split()[1])
             posted_date = (datetime.now() - timedelta(days=listed_days_ago)).strftime('%Y-%m-%d')
@@ -30,7 +29,6 @@ for filename in os.listdir(input_dir):
             df = pd.DataFrame([{'Title': data['Title'], 'Cash Price': data['Cash Price'],
                                 # ... các cột dữ liệu khác
                                 'Posted Date': posted_date}])
-
             # Tạo bảng phân vùng trên HDFS nếu chưa tồn tại
             table_name = "car_data"
             cursor.execute(f"""
