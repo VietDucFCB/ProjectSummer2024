@@ -186,7 +186,6 @@ def extract_and_save_car_data(page_number):
             except NoSuchWindowException:
                 print("Browser window closed unexpectedly. Exiting...")
                 return
-
             except Exception as e:
                 print(f"Error processing page {page_number}: {str(e)}")
                 break
