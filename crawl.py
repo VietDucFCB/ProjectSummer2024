@@ -84,12 +84,12 @@ def save_car_data(output_dir, page_number, index, title, price_cash, finance_pri
     file_name = os.path.join(sub_dir, f"{index + 1}.txt")
 
     file_content = (
-        f"Title: {title}\n"
-        f"Cash Price: {price_cash}\n"
-        f"Finance Price: {finance_price}\n"
-        f"Finance Details: {finance_details}\n"
-        + "\n".join(f"{key}: {value}" for key, value in overview_info.items()) + "\n"
-        f"Features:\n" + "\n".join(feature_list) + "\n"
+            f"Title: {title}\n"
+            f"Cash Price: {price_cash}\n"
+            f"Finance Price: {finance_price}\n"
+            f"Finance Details: {finance_details}\n"
+            + "\n".join(f"{key}: {value}" for key, value in overview_info.items()) + "\n"
+            f"Features: {'; '.join(feature_list)}\n"
     )
 
     with open(file_name, "w", encoding="utf-8") as file:
@@ -192,7 +192,7 @@ def extract_and_save_car_data(page_number):
     finally:
         driver.quit()
 
-total_pages = 2
+total_pages = 5
 
 with ThreadPoolExecutor(max_workers=5) as executor:
     futures = [executor.submit(extract_and_save_car_data, page_number) for page_number in range(1, total_pages + 1)]

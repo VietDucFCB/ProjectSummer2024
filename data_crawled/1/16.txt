@@ -1,97 +1,17 @@
-Title: 2016 Ford Fusion SE FWD
-Cash Price: $7,750
+Title: 2008 Toyota Prius Hatchback
+Cash Price: $5,995
 Finance Price: Not Available
 Finance Details: Not Available
-Exterior: Magnetic
+Exterior: White
 Interior: Unknown
-Mileage: 123,506 miles
-Fuel Type: Gas
-MPG: 22 city / 34 highway
+Mileage: 146,089 miles
+Fuel Type: Hybrid
+MPG: 48 city / 45 highway
 Transmission: Automatic Transmission
 Drivetrain: N/A
 Engine: N/A
 Location: N/A
-Listed Since: Listed 51 days ago
-VIN: 1FA6P0HD0G5107906
-Stock Number: 77906
-Features:
-Wheel Type
-Backup Camera
-Bluetooth
-Front Wheel Drive
-Power Steering
-ABS
-4-Wheel Disc Brakes
-Brake Assist
-Brake Actuated Limited Slip Differential
-Aluminum Wheels
-Tires - Front Performance
-Tires - Rear Performance
-Temporary Spare Tire
-Heated Mirrors
-Power Mirror(s)
-Integrated Turn Signal Mirrors
-Rear Defrost
-Intermittent Wipers
-Variable Speed Intermittent Wipers
-Daytime Running Lights
-Automatic Headlights
-AM/FM Stereo
-CD Player
-Satellite Radio
-MP3 Capability
-Auxiliary Audio Input
-Requires Subscription
-MP3 Capability
-Steering Wheel Audio Controls
-Satellite Radio
-Requires Subscription
-MP3 Capability
-Bluetooth Connection
-Auxiliary Audio Input
-Smart Device Integration
-Bluetooth Connection
-Pass-Through Rear Seat
-Rear Bench Seat
-Adjustable Steering Wheel
-Trip Computer
-Power Windows
-Telematics
-Requires Subscription
-Keyless Entry
-Power Door Locks
-Cruise Control
-A/C
-Power Driver Seat
-Power Passenger Seat
-Cloth Seats
-Bucket Seats
-Driver Adjustable Lumbar
-Driver Vanity Mirror
-Passenger Vanity Mirror
-Driver Illuminated Vanity Mirror
-Passenger Illuminated Visor Mirror
-Floor Mats
-Smart Device Integration
-Power Windows
-Power Door Locks
-Trip Computer
-Security System
-Immobilizer
-Traction Control
-Stability Control
-Traction Control
-Front Side Air Bag
-Telematics
-Requires Subscription
-Tire Pressure Monitor
-Driver Air Bag
-Passenger Air Bag
-Front Head Air Bag
-Rear Head Air Bag
-Passenger Air Bag Sensor
-Knee Air Bag
-Driver Restriction Features
-Child Safety Locks
-Back-Up Camera
-See less
+Listed Since: Listed 10 days ago
+VIN: JTDKB20UX83317716
+Stock Number: AAG317716
+Features: Dual Air Bags; F&R Head Curtain Air Bags; Traction Control; Tilt Wheel; FWD; ABS (4-Wheel); Alloy Wheels; Keyless Entry; 4-Cyl Hybrid 1.5 Liter; Side Air Bags; Rear Spoiler; Cruise Control; CD/MP3 (Single Disc); Air Conditioning; AM/FM Stereo; Hill Ascent Control; Anti-Theft System; Power Steering; Power Windows; Automatic CVT; Power Door Locks; Surround Sound SYNC; HD Radio; Video System; Touch Screen; Navigation System; Voice Control; C.B.; Digital Instruments; Premium Sound; Cassette; DVD Player; MP3; USB Port; Onboard Hard Drive; Bluetooth; Subwoofer; FUSE Handsfree Link; OnStar; CD Changer; Voice Activated; AM/FM; Satellite Radio; Separate Tweeters; Reverse Camera; Anti-Theft; CD Player; See less

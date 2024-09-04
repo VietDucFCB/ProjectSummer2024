@@ -1,53 +1,17 @@
-Title: 2019 Chevrolet Equinox LT with 1LT FWD
-Cash Price: $11,884
-Finance Price: $171/moEstimate
-Finance Details: $3,000 due at signing · 60 mo · 5.84% APR
-Exterior: Mosaic Black Metallic
-Interior: Jet Black
-Mileage: 76,181 miles
+Title: 2021 Ford F-150 Lariat SuperCrew 5.5' Box 4WD
+Cash Price: $34,398
+Finance Price: $628/moEstimate
+Finance Details: $3,000 due at signing · 60 mo · 7.4% APR
+Exterior: Carbonized Gray Metallic
+Interior: Black W/Medium Dark Slate
+Mileage: 49,968 miles
 Fuel Type: Gas
-MPG: 26 city / 32 highway
+MPG: 19 city / 24 highway
 Transmission: Automatic Transmission
 Drivetrain: N/A
 Engine: N/A
 Location: N/A
-Listed Since: Listed 8 days ago
-VIN: 3GNAXKEV7KL147378
-Stock Number: 3147378B
-Features:
-Engine, 1.5L Turbo Dohc 4 Cylinder, Sidi, VVT
-Transmission, 6 Speed Automatic, Electronically Controlled With Overdrive
-Axle, 3.50 Final Drive Ratio
-LT Preferred Equipment Group
-Wheels, 17" (43.2 CM) Aluminum
-Tires, P225/65R17 All Season Blackwall
-Seats, Front Bucket
-Jet Black, Premium Cloth Seat Trim
-Audio System, Chevrolet Infotainment 3 System, 7" Diagonal Color Touchscreen, Am/FM Stereo.
-Confidence & Convenience Package
-Driver Convenience Package
-Driver Confidence Package
-Mirrors, Outside Heated Power Adjustable, Manual Folding, Body Color
-Liftgate, Rear Power
-Seats, Heated Driver And Front Passenger
-Steering Wheel, Leather Wrapped 3 Spoke
-Remote Start
-Universal Home Remote
-Air Conditioning, Dual Zone Automatic Climate Control
-Shift Lever, Leather Wrapped
-Rear Park Assist With Audible Warning
-Lane Change Alert With Side Blind Zone Alert
-Rear Cross Traffic Alert
-See less
-Wheel Type
-Power Trunk/Liftgate
-Apple CarPlay
-Android Auto
-Front Heated Seats
-See all features
-1LT Model - 1.5L
-STEERING WHEEL  LEATHER-WRAPPED 3-SPOKE
-TIRES  P225/65R17 ALL-SEASON BLACKWALL  (STD)
-MOSAIC BLACK METALLIC
-ENGINE  1.5L TURBO DOHC 4-CYLINDER  SIDI  VVT  (170 hp [127.0 kW] @ 5600 rpm  203 lb-ft of torque [275.0 N-m] @ 2000 - 4000 rpm) (STD)
-See all features
+Listed Since: Listed 189 days ago
+VIN: 1FTEW1EP5MFB32982
+Stock Number: FB32982
+Features: Wheel Type; Navigation; Apple CarPlay; Android Auto; Seat Material; Front Heated Seats; Front Cooled Seats; Remote Engine Start; Climate Control; Blind Spot System; Lane Keep Assist; Backup Camera; Parking Sensors; Bluetooth; Tow Hitch; See less; ENGINE: 2.7L V6 ECOBOOST  -inc: auto start-stop technology (STD); Turbocharged; Four Wheel Drive; Tow Hitch; Power Steering; See all features
