@@ -10,7 +10,7 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 # Đường dẫn đến thư mục chứa các file txt trong Hadoop
-hadoop_path = "hdfs://localhost:9000/data_lake/1"
+hadoop_path = "hdfs://localhost:9000/data_lake/data_crawled/1"
 
 # Đọc tất cả các file txt từ Hadoop
 raw_data = spark.read.text(hadoop_path)
