@@ -1,7 +1,6 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, regexp_extract, expr # Import expr here
-import os
-import glob
+from pyspark.sql.functions import col, regexp_extract, expr, regexp_replace, trim, concat_ws, collect_list, sum as F_sum
+from pyspark.sql import Window
 
 # Tạo SparkSession
 spark = SparkSession.builder \
@@ -13,6 +12,15 @@ data_lake_path = "hdfs://localhost:9000/data_lake/data_crawled/"
 
 # Đọc tất cả các file txt đệ quy
 df_raw = spark.read.option("recursiveFileLookup", "true").text(data_lake_path)
+
+# Gộp các dòng liên quan dựa trên logic
+# Giả sử mỗi mục xe có một dòng 'Title:' - Dùng dòng này để xác định bắt đầu mỗi mục.
+window_spec = Window.orderBy("value")
+df_raw = df_raw.withColumn("is_title", df_raw['value'].contains('Title:').cast('int'))
+df_raw = df_raw.withColumn("group", F_sum('is_title').over(window_spec))
+
+# Gộp các dòng thành một dòng cho mỗi xe
+df_combined = df_raw.groupBy("group").agg(concat_ws(' ', collect_list('value')).alias("value"))
 
 # Định nghĩa các biểu thức chính quy để trích xuất các trường từ văn bản
 patterns = {
@@ -32,20 +40,27 @@ patterns = {
     'Listed Since': r'Listed Since: (.*)',
     'VIN': r'VIN: (.*)',
     'Stock Number': r'Stock Number: (.*)',
-    # 'Features': r'Features: (.*)',  # Loại bỏ dòng này
 }
 
 # Tạo DataFrame mới bằng cách trích xuất các trường dựa trên biểu thức chính quy
-df = df_raw
+df = df_combined
 for column, pattern in patterns.items():
     df = df.withColumn(column, regexp_extract(col("value"), pattern, 1))
 
 # Trích xuất trường "Features" bằng cách sử dụng `substring_index`
-df = df.withColumn("Features",
-                   expr("substring_index(substring_index(value, 'Features: ', -1), 'See less', 1)"))
+df = df.withColumn("Features", expr("substring_index(substring_index(value, 'Features: ', -1), 'See less', 1)"))
 
-# Loại bỏ cột "value" gốc
-df = df.drop("value")
+# Loại bỏ cột "value" gốc và cột "group"
+df = df.drop("value").drop("group")
+
+# Xử lý việc loại bỏ các ký tự xuống dòng và khoảng trắng thừa
+columns_to_clean = ['Title', 'Cash Price', 'Finance Price', 'Finance Details', 'Exterior',
+                    'Interior', 'Mileage', 'Fuel Type', 'MPG', 'Transmission', 'Drivetrain',
+                    'Engine', 'Location', 'Listed Since', 'VIN', 'Stock Number', 'Features']
+
+for column in columns_to_clean:
+    df = df.withColumn(column, regexp_replace(col(column), r'[\n\r]+', ' '))
+    df = df.withColumn(column, trim(col(column)))
 
 # Đường dẫn để lưu file CSV đầu ra
 output_folder = "C:/Users/kkagi/Downloads/test"
@@ -57,6 +72,9 @@ df.coalesce(1).write.mode("overwrite").option("header", "true").csv(output_folde
 spark.sparkContext.stop()
 
 # Tiếp tục với việc đổi tên file part
+import os
+import glob
+
 csv_files = glob.glob(f"{output_folder}/part-*.csv")
 if csv_files:
     csv_file = csv_files[0]  # Tìm file part CSV
