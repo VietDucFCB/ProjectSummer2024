@@ -91,6 +91,7 @@ def save_car_data(output_dir, page_number, index, title, price_cash, finance_pri
             + "\n".join(f"{key}: {value}" for key, value in overview_info.items()) + "\n"
             f"Features: {'; '.join(feature_list)}\n"
     )
+    #k
 
     with open(file_name, "w", encoding="utf-8") as file:
         file.write(file_content)
