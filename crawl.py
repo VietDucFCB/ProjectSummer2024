@@ -101,7 +101,6 @@ def extract_and_save_car_data(page_number):
     driver = get_driver()
     max_retries = 3
     retry_count = 0
-    #re
 
     try:
         while retry_count < max_retries:
