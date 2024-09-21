@@ -54,6 +54,7 @@ df = df.withColumn("Features", expr("substring_index(substring_index(value, 'Fea
 # Loại bỏ cột "value" gốc và cột "group"
 df = df.drop("value").drop("group")
 
+#
 # Xử lý việc loại bỏ các ký tự xuống dòng và khoảng trắng thừa
 columns_to_clean = ['Title', 'Cash Price', 'Finance Price', 'Finance Details', 'Exterior',
                     'Interior', 'Mileage', 'Fuel Type', 'MPG', 'Transmission', 'Drivetrain',
