@@ -22,7 +22,6 @@ df_raw = df_raw.withColumn("group", F_sum('is_title').over(window_spec))
 # Gộp các dòng thành một dòng cho mỗi xe
 df_combined = df_raw.groupBy("group").agg(concat_ws(' ', collect_list('value')).alias("value"))
 
-# Định nghĩa các biểu thức chính quy để trích xuất các trường từ văn bản
 patterns = {
     'Title': r'Title: (.*)',
     'Cash Price': r'Cash Price: \$(\d+,\d+)',
