@@ -203,7 +203,3 @@ with ThreadPoolExecutor(max_workers=5) as executor:
             print(f"Error processing a page: {str(e)}")
 
 print("Data collection complete.")
-
-#
-
-
