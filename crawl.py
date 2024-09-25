@@ -155,6 +155,7 @@ def extract_and_save_car_data(page_number):
                         finance_details = finance_details_element.get_text(strip=True) if finance_details_element else "No Finance Details"
                     else:
                         # Trường hợp chỉ có giá tiền mặt
+
                         price_cash_element = car_soup.select_one('div[data-test="unifiedPricingInfoPrice"]')
                         price_cash = price_cash_element.get_text(strip=True) if price_cash_element else "No Cash Price"
                         finance_price = "Not Available"
