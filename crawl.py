@@ -49,6 +49,7 @@ def extract_overview_info(car_soup):
     if overview_section:
         overview_items = overview_section.find_all('div', class_='flex items-center')
         for item in overview_items:
+
             text = item.get_text(strip=True)
             if 'Exterior:' in text:
                 overview_info['Exterior'] = text.replace('Exterior:', '').strip()
@@ -96,6 +97,7 @@ def save_car_data(output_dir, page_number, index, title, price_cash, finance_pri
         file.write(file_content)
 
     print(f"Data saved to file {file_name}")
+
 
 def extract_and_save_car_data(page_number):
     driver = get_driver()
