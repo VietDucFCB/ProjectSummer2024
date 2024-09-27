@@ -49,7 +49,6 @@ def extract_overview_info(car_soup):
     if overview_section:
         overview_items = overview_section.find_all('div', class_='flex items-center')
         for item in overview_items:
-
             text = item.get_text(strip=True)
             if 'Exterior:' in text:
                 overview_info['Exterior'] = text.replace('Exterior:', '').strip()
