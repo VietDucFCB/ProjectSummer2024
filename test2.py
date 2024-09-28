@@ -1,4 +1,5 @@
 import os
+import json
 import time
 import random
 from bs4 import BeautifulSoup
@@ -10,7 +11,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchWindowException, WebDriverException
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-output_dir = "data_crawled"
+output_dir = "data_crawled1"
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
@@ -20,6 +21,8 @@ def get_driver():
     options.add_argument('--headless')  # Chế độ headless
     options.add_argument('--disable-gpu')  # Vô hiệu hóa GPU (thường cần thiết cho chế độ headless)
     options.add_argument('--window-size=1920,1080')  # Đặt kích thước cửa sổ mặc định
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
 
     service = EdgeService(executable_path=edge_driver_path)
     return webdriver.Edge(service=service, options=options)
@@ -81,19 +84,21 @@ def save_car_data(output_dir, page_number, index, title, price_cash, finance_pri
     if not os.path.exists(sub_dir):
         os.makedirs(sub_dir)
 
-    file_name = os.path.join(sub_dir, f"{index + 1}.txt")
+    file_name = os.path.join(sub_dir, f"{index + 1}.json")
 
-    file_content = (
-            f"Title: {title}\n"
-            f"Cash Price: {price_cash}\n"
-            f"Finance Price: {finance_price}\n"
-            f"Finance Details: {finance_details}\n"
-            + "\n".join(f"{key}: {value}" for key, value in overview_info.items()) + "\n"
-            f"Features: {'; '.join(feature_list)}\n"
-    )
+    # Create a dictionary for the JSON content
+    car_data = {
+        'Title': title,
+        'Cash Price': price_cash,
+        'Finance Price': finance_price,
+        'Finance Details': finance_details,
+        'Overview': overview_info,
+        'Features': feature_list
+    }
 
+    # Save the dictionary as a JSON file
     with open(file_name, "w", encoding="utf-8") as file:
-        file.write(file_content)
+        json.dump(car_data, file, ensure_ascii=False, indent=4)
 
     print(f"Data saved to file {file_name}")
 
@@ -203,4 +208,5 @@ with ThreadPoolExecutor(max_workers=5) as executor:
             future.result()
         except Exception as e:
             print(f"Error processing a page: {str(e)}")
+
 print("Data collection complete.")
