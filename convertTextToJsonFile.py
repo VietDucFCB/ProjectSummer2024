@@ -43,5 +43,6 @@ def convert_txt_to_json(source_folder, target_folder):
 
                 print(f"Converted {source_file_path} to {target_file_path}")
 
+
 # Convert the files
 convert_txt_to_json(source_dir, target_dir)
