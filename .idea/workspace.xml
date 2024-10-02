@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="0979cb82-b6c2-4895-829e-c2d888e7ab77" name="Changes" comment="" />
 =======
     <list default="true" id="0979cb82-b6c2-4895-829e-c2d888e7ab77" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
 >>>>>>> 7138070 (.)
+=======
+    <list default="true" id="0979cb82-b6c2-4895-829e-c2d888e7ab77" name="Changes" comment="" />
+>>>>>>> 4d653a9 (Resolved merge conflicts)
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
