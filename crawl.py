@@ -14,6 +14,7 @@ output_dir = "data_crawled"
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
+
 def get_driver():
     edge_driver_path = "C:/EdgeDriver/msedgedriver.exe"
     options = webdriver.EdgeOptions()
