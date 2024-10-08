@@ -7,7 +7,6 @@ spark = SparkSession.builder \
     .appName("Extract_Car_Data") \
     .getOrCreate()
 
-# Đường dẫn đến thư mục chứa các file txt trên Hadoop
 data_lake_path = "hdfs://localhost:9000/data_lake/data_crawled/"
 
 # Đọc tất cả các file txt đệ quy
