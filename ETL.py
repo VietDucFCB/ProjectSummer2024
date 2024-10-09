@@ -9,7 +9,7 @@ spark = SparkSession.builder \
 
 data_lake_path = "hdfs://localhost:9000/data_lake/data_crawled/"
 
-# Đọc tất cả các file txt đệ quy
+# Đọc
 df_raw = spark.read.option("recursiveFileLookup", "true").text(data_lake_path)
 
 # Gộp các dòng liên quan dựa trên logic
