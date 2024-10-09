@@ -7,8 +7,6 @@ spark = SparkSession.builder \
     .appName("Extract_Car_Data") \
     .getOrCreate()
 
-# Đường dẫn đến thư mục chứa các file txt trên Hadoop
-
 data_lake_path = "hdfs://localhost:9000/data_lake/data_crawled/"
 
 df_raw = spark.read.option("recursiveFileLookup", "true").text(data_lake_path)
