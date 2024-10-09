@@ -6,7 +6,6 @@ from pyhive import hive
 input_base_dir = "C:/Users/kkagi/Downloads/ProjectSummer2024/data_crawled"
 output_dir_base = "/data_lake_partition"
 
-# Kết nối đến hive
 conn = hive.Connection(host="localhost", port=10002, username="kkagi")  
 cursor = conn.cursor()
 
