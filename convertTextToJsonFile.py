@@ -37,7 +37,6 @@ def convert_txt_to_json(source_folder, target_folder):
                     file_content = f.read()
                     parsed_data = parse_txt_content(file_content)
 
-                # Write to JSON file
 
                 with open(target_file_path, 'w', encoding='utf-8') as f:
                     json.dump(parsed_data, f, indent=4)
