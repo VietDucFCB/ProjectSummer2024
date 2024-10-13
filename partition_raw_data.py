@@ -3,12 +3,10 @@ from datetime import datetime, timedelta
 import pandas as pd
 from pyhive import hive
 
-# Đường dẫn đến thư mục chính chứa các folder được đánh số tăng dần
 input_base_dir = "C:/Users/kkagi/Downloads/ProjectSummer2024/data_crawled"
 output_dir_base = "/data_lake_partition"
 
-# Kết nối đến hive
-conn = hive.Connection(host="localhost", port=10002, username="kkagi")  # Thay đổi thông tin kết nối nếu cần
+conn = hive.Connection(host="localhost", port=10002, username="kkagi")  
 cursor = conn.cursor()
 
 # Tạo bảng phân vùng trên Hive nếu chưa tồn tại

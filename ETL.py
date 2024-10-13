@@ -7,13 +7,11 @@ spark = SparkSession.builder \
     .appName("Extract_Car_Data") \
     .getOrCreate()
 
-# Đường dẫn đến thư mục chứa các file txt trên Hadoop
 data_lake_path = "hdfs://localhost:9000/data_lake/data_crawled/"
 
-# Đọc tất cả các file txt đệ quy
+# Đọc
 df_raw = spark.read.option("recursiveFileLookup", "true").text(data_lake_path)
 
-# Gộp các dòng liên quan dựa trên logic
 # Giả sử mỗi mục xe có một dòng 'Title:' - Dùng dòng này để xác định bắt đầu mỗi mục.
 window_spec = Window.orderBy("value")
 df_raw = df_raw.withColumn("is_title", df_raw['value'].contains('Title:').cast('int'))
