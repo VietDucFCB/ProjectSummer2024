@@ -136,7 +136,6 @@ def extract_and_save_car_data(page_number):
                     finance_toggle = driver.find_elements(By.XPATH, '//label[@data-test="vdpPricingBlockLoanToggle"]')
 
                     if cash_toggle and finance_toggle:
-                        # Trường hợp có cả hai lựa chọn Cash và Finance
                         if wait_and_click(driver, By.XPATH, '//label[@data-test="vdpPricingBlockCashToggle"]'):
                             time.sleep(1)
                             car_html_content = driver.page_source
