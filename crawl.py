@@ -19,7 +19,7 @@ def get_driver():
     edge_driver_path = "C:/EdgeDriver/msedgedriver.exe"
     options = webdriver.EdgeOptions()
     options.add_argument('--headless')  # Chế độ headless
-    options.add_argument('--disable-gpu')  # Vô hiệu hóa GPU (thường cần thiết cho chế độ headless)
+    options.add_argument('--disable-gpu')  
     options.add_argument('--window-size=1920,1080')  
 
     service = EdgeService(executable_path=edge_driver_path)
