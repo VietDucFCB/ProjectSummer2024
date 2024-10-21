@@ -2,7 +2,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, regexp_extract, expr, regexp_replace, trim, concat_ws, collect_list, sum as F_sum
 from pyspark.sql import Window
 
-# Tạo SparkSession
+# Tạo SparkS
 spark = SparkSession.builder \
     .appName("Extract_Car_Data") \
     .getOrCreate()
