@@ -223,6 +223,7 @@ def extract_and_save_car_data(page_number):
 
 total_pages = 1
 
+
 with ThreadPoolExecutor(max_workers=6) as executor:
     futures = [executor.submit(extract_and_save_car_data, page_number) for page_number in range(1, total_pages + 1)]
     for future in as_completed(futures):
