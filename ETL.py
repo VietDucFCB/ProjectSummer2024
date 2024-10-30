@@ -9,7 +9,6 @@ spark = SparkSession.builder \
 
 data_lake_path = "hdfs://localhost:9000/data_lake/data_crawled/"
 
-# Đọc
 df_raw = spark.read.option("recursiveFileLookup", "true").text(data_lake_path)
 
 window_spec = Window.orderBy("value")
