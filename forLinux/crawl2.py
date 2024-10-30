@@ -3,28 +3,56 @@ import time
 import random
 from bs4 import BeautifulSoup
 from selenium import webdriver
-from selenium.webdriver.edge.service import Service as EdgeService
+from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchWindowException, WebDriverException
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-output_dir = "data_crawled"
+output_dir = "data_crawled2"
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
+def get_driver(retry_count=3):
+    chrome_driver_path = "/usr/local/bin/chromedriver"
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    options.add_argument('--disable-gpu')
+    options.add_argument('--window-size=1920,1080')
+    options.add_argument("--enable-logging")
+    options.add_argument("--v=1")
 
-def get_driver():
-    edge_driver_path = "C:/EdgeDriver/msedgedriver.exe"
-    options = webdriver.EdgeOptions()
-    options.add_argument('--headless')  
-    options.add_argument('--disable-gpu')  
-    options.add_argument('--window-size=1920,1080')  
+    for i in range(retry_count):
+        try:
+            service = ChromeService(executable_path=chrome_driver_path)
+            driver = webdriver.Chrome(service=service, options=options)
+            return driver
+        except WebDriverException as e:
+            print(f"Driver initialization failed (attempt {i+1}/{retry_count}): {e}")
+            time.sleep(2)
+    raise WebDriverException("Failed to initialize the driver after retries.")
 
-    service = EdgeService(executable_path=edge_driver_path)
-    return webdriver.Edge(service=service, options=options)
 
+def close_popup(driver):
+    try:
+        # Wait for the pop-up to appear (adjust the timeout as needed)
+        popup = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, "//div[contains(@class, 'modal-body')]"))
+        )
+
+        # Find and click the close button
+        close_button = driver.find_element(By.XPATH, "//button[@aria-label='Close']")
+        close_button.click()
+
+        print("Pop-up closed successfully")
+        return True
+    except TimeoutException:
+        print("Pop-up did not appear")
+        return False
+    except Exception as e:
+        print(f"Error closing pop-up: {e}")
+        return False
 
 def wait_and_click(driver, by, value, timeout=10):
     try:
@@ -98,7 +126,6 @@ def save_car_data(output_dir, page_number, index, title, price_cash, finance_pri
 
     print(f"Data saved to file {file_name}")
 
-
 def extract_and_save_car_data(page_number):
     driver = get_driver()
     max_retries = 3
@@ -110,9 +137,12 @@ def extract_and_save_car_data(page_number):
                 print(f"Fetching data from page {page_number}...")
                 driver.get(f'https://www.truecar.com/used-cars-for-sale/listings/?page={page_number}')
 
+                close_popup(driver)
+
                 WebDriverWait(driver, 20).until(
                     EC.presence_of_element_located((By.CSS_SELECTOR, 'a[data-test="vehicleCardLink"]'))
                 )
+
 
                 html_content = driver.page_source
                 soup = BeautifulSoup(html_content, 'html.parser')
@@ -131,7 +161,6 @@ def extract_and_save_car_data(page_number):
                     title_element = car_soup.find("div", {"data-test": "marketplaceVdpHeader"})
                     title = title_element.get_text(strip=True) if title_element else "No Title"
 
-                    # Kiểm tra xem có nút chuyển đổi Cash/Finance không
                     cash_toggle = driver.find_elements(By.XPATH, '//label[@data-test="vdpPricingBlockCashToggle"]')
                     finance_toggle = driver.find_elements(By.XPATH, '//label[@data-test="vdpPricingBlockLoanToggle"]')
 
@@ -155,8 +184,6 @@ def extract_and_save_car_data(page_number):
                         finance_details_element = car_soup.select_one('div[data-test="unifiedPricingInfoDisclaimer"]')
                         finance_details = finance_details_element.get_text(strip=True) if finance_details_element else "No Finance Details"
                     else:
-                        # Trường hợp chỉ có giá tiền mặt
-
                         price_cash_element = car_soup.select_one('div[data-test="unifiedPricingInfoPrice"]')
                         price_cash = price_cash_element.get_text(strip=True) if price_cash_element else "No Cash Price"
                         finance_price = "Not Available"
@@ -196,7 +223,8 @@ def extract_and_save_car_data(page_number):
 
 total_pages = 1
 
-with ThreadPoolExecutor(max_workers=5) as executor:
+
+with ThreadPoolExecutor(max_workers=6) as executor:
     futures = [executor.submit(extract_and_save_car_data, page_number) for page_number in range(1, total_pages + 1)]
     for future in as_completed(futures):
         try:

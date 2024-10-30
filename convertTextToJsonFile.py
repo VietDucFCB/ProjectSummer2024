@@ -6,7 +6,6 @@ source_dir = 'data_crawled'  # Path to the folder containing the text files
 target_dir = 'json_output'  # Path to the folder where JSON files will be saved
 
 
-# Define the function to parse the text content
 def parse_txt_content(file_content):
     data = {}
     for line in file_content.splitlines():
