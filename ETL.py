@@ -15,6 +15,7 @@ window_spec = Window.orderBy("value")
 df_raw = df_raw.withColumn("is_title", df_raw['value'].contains('Title:').cast('int'))
 df_raw = df_raw.withColumn("group", F_sum('is_title').over(window_spec))
 
+
 df_combined = df_raw.groupBy("group").agg(concat_ws(' ', collect_list('value')).alias("value"))
 
 patterns = {
