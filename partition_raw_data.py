@@ -8,6 +8,7 @@ output_dir_base = "/data_lake_partition"
 
 conn = hive.Connection(host="localhost", port=10002, username="kkagi")  
 cursor = conn.cursor()
+
 # Tạo bảng phân vùng trên Hive nếu chưa tồn tại
 table_name = "car_data"
 cursor.execute(f"""
